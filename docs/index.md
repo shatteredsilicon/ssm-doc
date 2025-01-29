@@ -20,6 +20,7 @@ SSM is a free and open-source solution that you can run in your own environment 
 * [Configuring MongoDB for Monitoring in SSM Query Analytics](conf-mongodb.md)
 * [Security Features](security.md)
 * [Metrics Monitor Dashboards](index.metrics-monitor.dashboard.md)
+* [SNMP monitoring for remote hosts](snmp-monitoring.md)
 
 ## Reference
 
