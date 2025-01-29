@@ -14,13 +14,14 @@ SSM is a free and open-source solution that you can run in your own environment 
 
 * [Managing SSM Client](ssm-admin.md)
 * [Adding a MySQL or PostgreSQL Remote DB instance](remote-instance.md)
+* [Adding an SNMP remote host](snmp-monitoring.md)
 * [Adding an Amazon RDS DB instance](amazon-rds.md)
 * [Configuring MySQL for Best Results](conf-mysql.md)
 * [Configuring PostgreSQL for Monitoring](conf-postgres.md)
 * [Configuring MongoDB for Monitoring in SSM Query Analytics](conf-mongodb.md)
 * [Security Features](security.md)
 * [Metrics Monitor Dashboards](index.metrics-monitor.dashboard.md)
-* [SNMP monitoring for remote hosts](snmp-monitoring.md)
+
 
 ## Reference
 
