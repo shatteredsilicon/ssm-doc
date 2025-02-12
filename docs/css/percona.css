@@ -10,8 +10,12 @@
     */
   }
 [data-md-color-scheme="slate"] {
-    --md-primary-fg-color:        #f7f7f7;
+    --md-primary-fg-color:        #32373c;
+    --md-primary-fg-color--light: #00E8B6;
+    --md-primary-fg-color--dark:  #028669;
     /*
+    original colours:
+    --md-primary-fg-color:        #f7f7f7;
     --md-primary-fg-color--light: #ECB7B7;
     --md-primary-fg-color--dark:  #90030C;
     */
