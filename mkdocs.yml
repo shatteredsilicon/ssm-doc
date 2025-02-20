@@ -13,7 +13,7 @@ use_directory_urls: false
 
 theme:
   name: material
-  logo: _images/SS-LOCKUP_WHITEBLOCK_HORIZONTAL.png
+  logo: _images/SS-LOCKUP_WHITEBLOCK_HORIZONTAL_SMALL.png
   favicon: _images/shatteredsilicon-favicon.ico
   palette:
     # Day mode
