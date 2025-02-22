@@ -1,7 +1,7 @@
 [data-md-color-scheme="percona-light"] {
-    --md-primary-fg-color:        #028669;
-    --md-primary-fg-color--light: #32373c;
-    --md-primary-fg-color--dark:  #90030C;
+    --md-primary-fg-color:        #484C54;
+    --md-primary-fg-color--light: #00E8B6;
+    --md-primary-fg-color--dark:  #028669;
     /*
     original colours:
     --md-primary-fg-color:        #e97e03;
@@ -10,7 +10,7 @@
     */
   }
 [data-md-color-scheme="slate"] {
-    --md-primary-fg-color:        #32373c;
+    --md-primary-fg-color:        #32373C;
     --md-primary-fg-color--light: #00E8B6;
     --md-primary-fg-color--dark:  #028669;
     /*
@@ -23,4 +23,12 @@
   }
 ul li p {
 	margin: 0;
+}
+
+a:link {
+	color: #00E8B6;
+}
+
+a:visited {
+	color: #028669;
 }
