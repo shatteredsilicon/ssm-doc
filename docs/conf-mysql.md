@@ -83,7 +83,6 @@ The superuser credentials are required only to set up the `ssm` user with necess
 ```
 CREATE USER IF NOT EXISTS 'ssm'@'localhost' IDENTIFIED BY 'pass' WITH MAX_USER_CONNECTIONS 10;
 GRANT SELECT, PROCESS, SUPER, REPLICATION CLIENT, RELOAD ON *.* TO 'ssm'@'localhost';
-GRANT SELECT, UPDATE, DELETE, DROP ON performance_schema.* TO 'ssm'@'localhost';
 ```
 
 On MySQL 8+, also add the `SHOW VIEW` privilege:
