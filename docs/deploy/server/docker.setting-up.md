@@ -38,7 +38,7 @@ The previous command does the following:
 * The **docker create** command instructs the Docker daemon to create a container from an image.
 * The `-v` options initialize data volumes for the container.
 * The `--name` option assigns a custom name for the container that you can use to reference the container within a Docker network. In this case: `ssm-data`.
-* `shatteredsilicon/ssm-server:1` is the name and version tag of the image to derive the container from.
+* `shatteredsilicon/ssm-server:latest` is the name and version tag of the image to derive the container from.
 * `/bin/true` is the command that the container runs.
 
 !!! alert alert-warning "Important"
@@ -59,13 +59,13 @@ $ docker run -d \
 
 This command does the following:
 
-* The **docker run** command runs a new container based on the `shatteredsilicon/ssm-server:1` image.
+* The **docker run** command runs a new container based on the `shatteredsilicon/ssm-server:latest` image.
 * The `-d` option starts the container in the background (detached mode).
 * The `-p` option maps the port for accessing the SSM Server web UI. For example, if port **80** is not available, you can map the landing page to port 8080 using `-p 8080:80`.
 * The `-v` option mounts volumes from the `ssm-data` container (see Creating the ssm-data Container).
 * The `--name` option assigns a custom name to the container that you can use to reference the container within the Docker network. In this case: `ssm-server`.
 * The `--restart` option defines the container’s restart policy. Setting it to `always` ensures that the Docker daemon will start the container on startup and restart it if the container exits.
-* `shatteredsilicon/ssm-server:1` is the name and version tag of the image to derive the container from.
+* `shatteredsilicon/ssm-server:latest` is the name and version tag of the image to derive the container from.
 
 ## Installing and using specific docker version
 
