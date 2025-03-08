@@ -49,7 +49,7 @@ The SSM Client package consist of the following:
 SSM Server runs on the machine that will be your central monitoring host. It is distributed as an appliance via the following:
 
 * Docker image that you can use to run a container
-* OVA that you can run in VirtualBox or another hypervisor
+* OVA that you can run in another hypervisor
 * AMI that you can run via Amazon Web Services
 
 For more information, see [Installing SSM Server](deploy/index.md#installing-ssm-server).
