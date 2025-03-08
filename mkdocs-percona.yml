@@ -86,8 +86,6 @@ nav:
       - 'Virtual Appliance':
         - 'deploy/server/virtual-appliance.md'
         - 'deploy/server/ova.virtualbox.cli.md'
-        - 'deploy/server/ova.virtualbox.gui.md'
-        - 'deploy/server/ova.vmware-workstation-player.md'
       - 'deploy/server/ami.md'
     - 'Tools of PMM':
       - 'tool.md'
