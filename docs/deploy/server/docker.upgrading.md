@@ -88,6 +88,9 @@ CONTAINER ID   IMAGE                      COMMAND                CREATED        
 
 Then, make sure that the SSM version has been updated (see [SSM Version](../../glossary.terminology.md#ssm-version)) by checking the SSM Server web interface.
 
+!!! alert alert-warning "Warning"
+    After an upgrade, in some cases it can take 5-10 minutes for the container to start due to the need to update on-disk data formatting of some components. This will usually prevent subsequent downgrades.
+
 ## Removing the backup container
 
 After you have tried the features of the new version, you may decide to continue using it. The backup container that you have stored is no longer needed in this case.
