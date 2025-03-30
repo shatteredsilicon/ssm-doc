@@ -174,7 +174,7 @@ For MariaDB 10.5+ in RDS, due to missing SUPER privileges, you will also need to
 GRANT SHOW VIEW, SLAVE MONITOR ON *.* TO 'ssm'@'%';
 ```
 
-For MariaDB 8.0+ in RDS, due to missing SUPER privilege, you will also need to add:
+For MySQL 8.0+ in RDS, due to missing SUPER privilege, you will also need to add:
 ```
 GRANT SYSTEM_VARIABLES_ADMIN ON *.* TO 'ssm'@'%';
 ```
