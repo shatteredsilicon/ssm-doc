@@ -25,6 +25,42 @@ ALTER SYSTEM SET track_io_timing=ON;
 SELECT pg_reload_conf();
 ```
 
+## Configuring Query Analytics
+
+### Configuring Log file Query Analytics
+
+For Log file Query Analytics to works, you will need to adjust following PostgreSQL settings:
+
+`logging_collector`
+: set this to `on`, this setting enables the logging collector, which is a background process that captures log messages sent to stderr and redirects them into log files. See more details about [logging_collector](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOGGING-COLLECTOR).
+
+`log_duration`
+: set this to `on`, this setting causes the duration of every completed statement to be logged, so we can get the query time from it. See more details about [log_duration](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DURATION).
+
+`log_statement`
+: set this to `none`, this setting controls which SQL statements are logged. But we don't need this as `log_duration = on` also causes the SQL statements to be logged. See more details about [log_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-STATEMENT).
+
+`log_min_duration_statement`
+: set this to a proper number, e.g. 1000 (1 second), `0` for logging all statements. This setting causes all SQL statements that run longer than this duration to be logged. See more details about [log_min_duration_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT).
+
+`log_destination`
+: include `csvlog` or `jsonlog` in this setting, this setting defines the list of desired log destinations. See more details about [log_destination](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DESTINATION).
+
+### Configuring Table Query Analytics
+
+For Table Query Analytics to works, you will need to adjust following PostgreSQL settings:
+
+`shared_preload_libraries`
+: include `pg_stat_statements` in this setting, this setting specifies one or more shared libraries to be preloaded at server start.
+
+`pg_stat_statements.track`
+: set this to `all` or `top`, this setting controls which statements are counted by the module.
+
+`pg_stat_statements.max`
+: set this to a proper number, e.g. 10000, this is the maximum number of statements tracked by the module.
+
+And make sure you have run `CREATE EXTENSION IF NOT EXISTS pg_stat_statements;` for the database used in the Query Analytics system.
+
 ## Supported versions of PostgreSQL
 
 SSM follows [postgresql.org EOL policy](https://www.postgresql.org/support/versioning/), and thus supports monitoring PostgreSQL version 9.4 and up.  Older versions may work, but will not be supported.

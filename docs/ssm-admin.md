@@ -598,6 +598,132 @@ $ ssm-admin add mongodb:metrics \
 --cluster <cluster name>
 ```
 
+## Adding PostgreSQL query analytics service
+
+Use the `postgresql:queries` alias to enable PostgreSQL query analytics.
+
+### USAGE
+
+```
+ssm-admin add postgresql:queries [NAME] [OPTIONS]
+```
+
+This creates the `ssm-postgresql-queries` service that is able to collect QAN data for multiple remote PostgreSQL server instances.
+
+The **ssm-admin add** command is able to detect the local SSM Client name, but you can also specify it explicitly as an argument.
+
+### OPTIONS
+
+The following options can be used with the `postgresql:queries` alias:
+
+`--create-user`
+: Create a dedicated PostgreSQL user for SSM Client (named `ssm`).
+
+`--create-user-password`
+: Specify password for the dedicated PostgreSQL user.
+
+`--force`
+:     Force to create or update the dedicated PostgreSQL user.
+
+`--host`
+:     Specify the PostgreSQL host name.
+
+`--password`
+:     Specify the password for PostgreSQL user with admin privileges.
+
+`--port`
+:     Specify the PostgreSQL instance port.
+
+`--query-source`
+:     Specify the source of data:
+
+    * `auto`: Select automatically (default).
+    * `logfile`: Use the log file.
+    * `table`: Use table.
+
+`--user`
+: Specify the name of PostgreSQL user with admin privileges.
+
+You can also use global options that apply to any other command, as well as options that apply to adding services in general.
+
+### DETAILED DESCRIPTION
+
+When adding the PostgreSQL query analytics service, the **ssm-admin** tool will attempt to automatically detect the local PostgreSQL instance and PostgreSQL superuser credentials.  You can use options to provide this information, if it cannot be detected automatically.
+
+You can also specify the `--create-user` option to create a dedicated `ssm` user on the PostgreSQL instance that you want to monitor. This user will be given all the necessary privileges for monitoring, and is recommended over using the PostgreSQL superuser.
+
+For example, to set up remote monitoring of QAN data on a PostgreSQL server located at 192.168.200.2, use a command similar to the following:
+
+```
+$ ssm-admin add postgresql:queries --user root --password root --host 192.168.200.2 --create-user
+```
+
+QAN can use either the *Log file* or *Table* as the source. By default, it chooses the *Log file* for a local PostgreSQL instance and *Table* otherwise. For more information about the differences, see [Configuring Query Analytics](conf-postgres.md#configuring-query-analytics).
+
+You can explicitly set the query source when adding a QAN instance using the `--query-source` option.
+
+For more information, run **ssm-admin add** `postgresql:queries --help`.
+
+## Adding PostgreSQL metrics service
+
+Use the `postgresql:metrics` alias to enable PostgreSQL metrics monitoring.
+
+### USAGE
+
+```
+$ ssm-admin add postgresql:metrics [NAME] [OPTIONS]
+```
+
+This creates the `ssm-postgresql-metrics` service that collects PostgreSQL instance metrics.
+
+!!! alert alert-info "Note"
+    It should be able to detect the local SSM Client name, but you can also specify it explicitly as an argument.
+
+### OPTIONS
+
+The following options can be used with the `postgresql:metrics` alias:
+
+`--create-user`
+: Create a dedicated PostgreSQL user for SSM Client (named `ssm`).
+
+`--create-user-password`
+: Specify password for the dedicated PostgreSQL user.
+
+`--force`
+: Force to create or update the dedicated PostgreSQL user.
+
+`--host`
+: Specify the PostgreSQL host name.
+
+`--password`
+: Specify the password for PostgreSQL user with admin privileges.
+
+`--port`
+: Specify the PostgreSQL instance port.
+
+`--socket`
+: Specify the PostgreSQL instance socket file.
+
+`--user`
+: Specify the name of PostgreSQL user with admin privileges.
+
+You can also use global options that apply to any other command, as well as options that apply to adding services in general.
+
+### DETAILED DESCRIPTION
+
+When adding the PostgreSQL metrics monitoring service, the **ssm-admin** tool attempts to automatically detect the local PostgreSQL instance and PostgreSQL superuser credentials.  You can use options to provide this information, if it cannot be detected automatically.
+
+You can also specify the `--create-user` option to create a dedicated `ssm` user on the PostgreSQL host that you want to monitor.  This user will be given all the necessary privileges for monitoring, and is recommended over using the PostgreSQL superuser.
+
+For example, to set up remote monitoring of PostgreSQL metrics on a server located at 192.168.200.3, use a command similar to the following:
+
+```
+$ ssm-admin add postgresql:metrics --user root --password root --host 192.168.200.3 --create-user
+```
+
+For more information, run **ssm-admin add** `postgresql:metrics` `--help`.
+
+
 ## Adding ProxySQL metrics service
 
 Use the `proxysql:metrics` alias to enable ProxySQL performance metrics monitoring.
