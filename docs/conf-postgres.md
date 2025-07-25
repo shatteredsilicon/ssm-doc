@@ -61,6 +61,9 @@ For Table Query Analytics to works, you will need to adjust following PostgreSQL
 
 And make sure you have run `CREATE EXTENSION IF NOT EXISTS pg_stat_statements;` for the database used in the Query Analytics system.
 
+!!! alert alert-info "Note"
+    For best results, make sure the PostgreSQL user used in the system is a member of the role `pg_read_all_stats`. See also <https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-STATS-VIEWS>.
+
 ## Supported versions of PostgreSQL
 
 SSM follows [postgresql.org EOL policy](https://www.postgresql.org/support/versioning/), and thus supports monitoring PostgreSQL version 9.4 and up.  Older versions may work, but will not be supported.
