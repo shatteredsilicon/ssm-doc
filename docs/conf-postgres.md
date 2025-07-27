@@ -25,6 +25,39 @@ ALTER SYSTEM SET track_io_timing=ON;
 SELECT pg_reload_conf();
 ```
 
+## Creating a PostgreSQL User Account to Be Used with SSM
+
+When adding a PostgreSQL instance to monitoring, you can specify the PostgreSQL server superuser account credentials.  However, monitoring with the superuser account is not secure. If you also specify the `--create-user` option, it will create a user with only the necessary privileges for collecting data.
+
+You can also set up the `ssm` user manually with necessary privileges and pass its credentials when adding the instance.
+
+To enable complete PostgreSQL instance monitoring, a command similar to the following is recommended:
+
+```
+sudo ssm-admin add postgresql --user root --password root --create-user
+```
+
+The superuser credentials are required only to set up the `ssm` user with necessary privileges for collecting data.  If you want to create this user yourself, the following privileges are required:
+
+```
+CREATE USER ssm WITH PASSWORD 'pass';
+GRANT pg_monitor TO ssm;
+```
+
+On PostgreSQL 16 and below, the following privileges are also required:
+
+```
+GRANT EXECUTE ON FUNCTION pg_current_logfile() TO ssm;
+```
+
+If the `ssm` user already exists, simply pass its credential when you add the instance:
+
+```
+sudo ssm-admin add postgresql --user ssm --password pass
+```
+
+For more information, run as root `ssm-admin add postgresql --help`.
+
 ## Configuring Query Analytics
 
 ### Configuring Log file Query Analytics
