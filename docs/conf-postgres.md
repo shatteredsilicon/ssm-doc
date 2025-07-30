@@ -41,13 +41,14 @@ The superuser credentials are required only to set up the `ssm` user with necess
 
 ```
 CREATE USER ssm WITH PASSWORD 'pass';
-GRANT pg_monitor TO ssm;
-```
-
-On PostgreSQL 16 and below, the following privileges are also required:
-
-```
-GRANT EXECUTE ON FUNCTION pg_current_logfile() TO ssm;
+CREATE SCHEMA ssm AUTHORIZATION ssm;
+ALTER USER ssm SET SEARCH_PATH TO ssm,public,pg_catalog;
+CREATE OR REPLACE VIEW ssm.pg_stat_activity AS SELECT * from pg_catalog.pg_stat_activity;
+GRANT SELECT ON ssm.pg_stat_activity TO ssm;
+CREATE OR REPLACE VIEW ssm.pg_stat_replication AS SELECT * from pg_catalog.pg_stat_replication;
+GRANT SELECT ON ssm.pg_stat_replication TO ssm;
+GRANT pg_read_all_settings TO ssm;
+GRANT pg_read_all_stats TO ssm;
 ```
 
 If the `ssm` user already exists, simply pass its credential when you add the instance:
