@@ -32,12 +32,224 @@ db.createRole({
     roles:[]
 })
 
+db.createRole({
+  role: "systemCollMonitor",
+  privileges: [
+    {
+      resource: { db: "", collection: "system.roles" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "system.users" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "system.version" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "system.indexBuilds" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "system.preimages" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "system.buckets" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "system.profile" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "system.js" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "system.views" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "replset.minvalid" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "replset.election" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "system.replset" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "replset.oplogTruncateAfterPoint" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "replset.initialSyncId" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "system.rollback.id" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "system.sharding_ddl_coordinators"},
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    },
+    {
+      resource: { db: "", collection: "" },
+      actions: [
+        "listIndexes",
+        "listCollections",
+        "dbStats",
+        "dbHash",
+        "collStats",
+        "find",
+        "indexStats"
+      ]
+    }
+  ],
+  roles: []
+})
+
 db.getSiblingDB("admin").createUser({
    user: "mongodb_exporter",
    pwd: "s3cR#tpa$$worD",
    roles: [
       { role: "explainRole", db: "admin" },
       { role: "clusterMonitor", db: "admin" },
+      { role: "systemCollMonitor", db: "admin" },
       { role: "read", db: "local" }
    ]
 })
