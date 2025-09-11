@@ -70,7 +70,7 @@ Run this command as root or by using the **sudo** command
 $ docker run ... -e METRICS_RETENTION=192h ... shatteredsilicon-ssm:latest
 ```
 
-### QUERIES_RETENTIO
+### QUERIES_RETENTION
 
 This option determines how many days queries are stored at SSM Server.
 
