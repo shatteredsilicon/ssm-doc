@@ -22,6 +22,7 @@ The following sample configurations can be used depending on the variant and ver
     log_output=file
     slow_query_log=ON
     long_query_time=0.004
+    min_examined_row_limit=100
     log_slow_rate_limit=100
     log_slow_rate_type=query
     log_slow_verbosity=full
@@ -46,6 +47,7 @@ The following sample configurations can be used depending on the variant and ver
     log_output=file
     slow_query_log=ON
     long_query_time=0.004
+    min_examined_row_limit=100
     log_slow_verbosity=query_plan,explain
     log_slow_admin_statements=ON
     log_slow_slave_statements=ON
@@ -62,6 +64,7 @@ The following sample configurations can be used depending on the variant and ver
     log_output=file
     slow_query_log=ON
     long_query_time=0.004
+    min_examined_row_limit=100
     log_slow_admin_statements=ON
     log_slow_slave_statements=ON
     ```
@@ -182,6 +185,12 @@ performance_schema_consumer_events_statements_history = ON
 performance_schema_consumer_events_statements_history_long = ON
 performance_schema_consumer_events_transactions_history = ON
 performance_schema_consumer_events_transactions_history_long = ON
+performance_schema_events_statements_history_size = 1024
+performance-schema-instrument = 'wait/io/table/sql/handler=ON'
+performance-schema-instrument = 'statement/sql/transaction=ON'
+performance-schema-instrument = 'statement/sql/transaction@timed=ON'
+performance-schema-instrument = 'wait/lock/metadata/sql/mdl=ON''
+performance-schema-instrument = 'wait/lock/metadata/sql/mdl@timed=ON’
 ```
 
 !!! alert alert-warning "Important"
