@@ -145,6 +145,7 @@ nav:
       - dashboard.mongodb-wiredtiger.md
       - dashboard.postgres-overview.md
       - dashboard.pxc-galera-cluster-overview.md
+      - dashboard.advisor-tuning.md
   - 'Reference':
     - 'Release Notes':
         - 'release-notes/index.md'
