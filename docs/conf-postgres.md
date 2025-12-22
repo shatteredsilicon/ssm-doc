@@ -49,6 +49,16 @@ CREATE OR REPLACE VIEW ssm.pg_stat_replication AS SELECT * from pg_catalog.pg_st
 GRANT SELECT ON ssm.pg_stat_replication TO ssm;
 GRANT pg_read_all_settings TO ssm;
 GRANT pg_read_all_stats TO ssm;
+/*
+For PostgreSQL 14+, use following SQL:
+
+GRANT pg_read_all_data TO ssm;
+
+For PostgreSQL 13 and prior, use following SQL for all schemas accordingly:
+
+GRANT SELECT ON ALL TABLES IN SCHEMA xxx TO ssm;
+ALTER DEFAULT PRIVILEGES IN SCHEMA xxx GRANT SELECT ON TABLES TO ssm;
+*/
 ```
 
 If the `ssm` user already exists, simply pass its credential when you add the instance:
