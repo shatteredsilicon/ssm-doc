@@ -104,6 +104,7 @@ nav:
     - 'conf-mysql.md'
     - 'conf-postgres.md'
     - 'conf-mongodb.md'
+    - 'snmp-monitoring.md'
     - 'security.md'
     - 'Metrics Monitor Dashboards':
       - 'index.metrics-monitor.dashboard.md'
