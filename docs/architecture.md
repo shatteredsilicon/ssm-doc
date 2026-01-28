@@ -12,8 +12,8 @@ The modules are packaged for easy installation and usage. It is assumed that the
 
 SSM is a collection of tools designed to seamlessly work together.  Some are developed by Shattered Silicon and some are third-party open-source tools.
 
-!!! alert alert-info "Note:
-    The overall client-server model is not likely to change, but the set of tools that make up each component may evolve with the product.
+** Note:**
+** The overall client-server model is not likely to change, but the set of tools that make up each component may evolve with the product.**
 
 The following diagram illustrates how SSM is currently structured:
 
@@ -74,7 +74,6 @@ SSM Server includes the following tools:
 
         * Shattered Silicon Dashboards is a set of dashboards for Grafana developed by Shattered Silicon.
 
-* Orchestrator is a MySQL replication topology management and visualization tool. For more information, see: [Orchestrator Manual](https://github.com/outbrain/orchestrator/wiki/Orchestrator-Manual).
 
 All tools can be accessed from the SSM Server web interface (landing page). For more information, see [Tools of SSM](tool.md).
 
@@ -83,34 +82,3 @@ All tools can be accessed from the SSM Server web interface (landing page). For 
 
     Default ports
     : Ports in [Terminology Reference](glossary.terminology.md#ports)
-
-    Enabling orchestrator
-    : Orchestrator [Terminology Reference](glossary.terminology.md#orchestrator)
-
-## Orchestrator
-
-Orchestrator is a MySQL replication topology management and visualization tool.  If it is enabled, you can access it using the `/orchestrator` URL after SSM Server address.  Alternatively, you can click the MySQL Replication Topology Manager button on the SSM Server landing page.
-
-To use it, create a MySQL user for Orchestrator on all managed instances:
-
-```
-GRANT SUPER, PROCESS, REPLICATION SLAVE, RELOAD ON *.*
-TO 'orc_client_user'@'%'
-IDENTIFIED BY 'orc_client_password’;
-```
-
-!!! alert alert-info "Note"
-    The credentials in the previous example are default. If you use a different user name or password, you have to pass them when running SSM Server using the `ORCHESTRATOR_PASSWORD` and `ORCHESTRATOR_USER` options.
-
-    ```
-    $ docker run ... -e ORCHESTRATOR_ENABLED=true ORCHESTRATOR_USER=name -e ORCHESTRATOR_PASSWORD=pass ... ssm/ shatteredsilicon/ssm-server:1
-    ```
-
-Then you can use the *Discover* page in the Orchestrator web interface to add the instances to the topology.
-
-!!! alert alert-info "Note"
-    **Orchestrator is not enabled by default starting with SSM 1.3.0**
-
-    Orchestrator was included into SSM for experimental purposes.  It is a standalone tool, not integrated with SSM other than that you can access it from the landing page.
-
-    In version 1.3.0 and later, Orchestrator is not enabled by default. To enable it, see [Additional options](deploy/server/docker.setting-up.md) in the [Running SSM Server via Docker](deploy/server/docker.md) section.

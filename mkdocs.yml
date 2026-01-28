@@ -14,7 +14,7 @@ use_directory_urls: false
 theme:
   name: material
   logo: https://shatteredsilicon.net/wp-content/uploads/2025/02/SS-ICON_MONITORING_SMALL.png
-  favicon: _images/shatteredsilicon-favicon.ico
+  favicon: https://shatteredsilicon.net/wp-content/uploads/2025/11/SS-SYMBOL_BLACKBLOCK-300x300.png
   palette:
     # Day mode
     - media: "(prefers-color-scheme: light)"
@@ -97,6 +97,7 @@ nav:
       - 'tool.md'
       - 'qan.md'
       - 'metrics-monitor.md'
+      - 'alerting.md'
   - 'Advanced':
     - 'ssm-admin.md'
     - 'remote-instance.md'

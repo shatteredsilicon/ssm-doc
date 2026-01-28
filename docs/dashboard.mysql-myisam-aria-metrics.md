@@ -1,7 +1,7 @@
 # MySQL MyISAM Aria Metrics Dashboard
 
 The MySQL MyISAM Aria Metrics dashboard describes the specific features
-of MariaDB MySQL server: [Aria storage engine](https://mariadb.com/kb/en/the-mariadb-library/aria-storage-engine/), [Online DDL (online alter table)](https://mariadb.com/kb/en/the-mariadb-library/alter-table/), and [InnoDB defragmentation patch](https://mariadb.com/kb/en/the-mariadb-library/defragmenting-innodb-tablespaces/). This dashboard contains the following metrics:
+of MariaDB MySQL server: [Aria storage engine](https://mariadb.com/kb/en/the-mariadb-library/aria-storage-engine/), [Online DDL (online alter table)](https://mariadb.com/kb/en/the-mariadb-library/alter-table/), and [InnoDB defragmentation patch](https://mariadb.com/docs/server/ha-and-performance/optimization-and-tuning/optimizing-tables/defragmenting-innodb-tablespaces). This dashboard contains the following metrics:
 
 ## Aria Storage Engine
 
