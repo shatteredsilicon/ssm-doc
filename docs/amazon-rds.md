@@ -59,6 +59,7 @@ To define a new policy use the IAM page at AWS.
                 "Sid": "Stmt1664804420",
                 "Effect": "Allow",
                 "Action": [
+                    "ec2:DescribeRegions",
                     "rds:DescribeDBInstances",
                     "rds:DescribeDBParameters",
                     "rds:DescribeDBLogFiles",
